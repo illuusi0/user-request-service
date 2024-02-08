@@ -1,0 +1,6 @@
+# Зависимости
+/node_modules
+/server/node_modules
+
+# Инструменты редактора
+/.vscode
