@@ -1,0 +1,54 @@
+.modal-overlay {
+    position: fixed; /* Изменено с absolute на fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050; /* Увеличьте, если есть элементы с более высоким z-index */
+}
+
+.modal-window {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1051; /* Убедитесь, что это значение выше, чем у .modal-overlay */
+    max-width: 500px;
+    width: 90%;
+    /* Добавьте margin для автоматической центровки и адаптивности */
+    margin: auto;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+    padding: 1em;
+}
+
+.modal-header {
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.modal-footer {
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.close-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 1.2em;
+}

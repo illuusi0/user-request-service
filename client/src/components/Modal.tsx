@@ -1,29 +1,35 @@
-import React from 'react';
+import React, { ReactNode } from 'react'
+import ReactDOM from 'react-dom'
+import '../styles/Modal.scss'
 
-const RequestDetailsModal: React.FC<{
-  request: {
-    date: string;
-    name: string;
-    type: string;
-    description: string;
-    status: string;
-  } | null;
-  onClose: () => void;
-}> = ({ request, onClose }) => {
-    if (!request) return null;
+interface ModalProps {
+    isOpen: boolean
+    children: ReactNode
+    onClose: () => void
+}
 
-    return (
-        <div className="modal">
-            <div className="modal-content">
-                <span className="close-button" onClick={onClose}>&times;</span>
-                <h2>Детали обращения</h2>
-                <p><strong>Имя:</strong> {request.name}</p>
-                <p><strong>Тип:</strong> {request.type}</p>
-                <p><strong>Описание:</strong> {request.description}</p>
-                <p><strong>Статус:</strong> {request.status}</p>
+const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose }) => {
+    if (!isOpen) return null
+
+    const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        onClose()
+    }
+
+    const handleModalClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        event.stopPropagation()
+    }
+
+    return ReactDOM.createPortal(
+        <div className="modal-overlay" onClick={handleOverlayClick}>
+            <div className="modal-window" onClick={handleModalClick}>
+                <button className="close-button" onClick={onClose}>
+                    ×
+                </button>
+                {children}
             </div>
-        </div>
-    );
-};
+        </div>,
+        document.getElementById('modal-root') as HTMLElement,
+    )
+}
 
-export default RequestDetailsModal;
+export default Modal
