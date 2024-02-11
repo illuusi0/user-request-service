@@ -1,11 +1,10 @@
-// Button.tsx
 import React from 'react'
-import '../styles/Button.scss' // Убедитесь, что этот путь к стилям корректен
+import '../styles/Button.scss'
 
 interface ButtonProps {
-    onClick: () => void // Функция, которая будет вызываться при клике
-    children: React.ReactNode // Содержимое кнопки
-    className?: string // Необязательный параметр для дополнительных классов CSS
+    onClick: () => void
+    children: React.ReactNode
+    className?: string
 }
 
 const Button: React.FC<ButtonProps> = ({ onClick, children, className }) => {

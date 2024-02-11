@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/DetailsModal.scss'
 
 const RequestDetailsModal: React.FC<{
     request: {
@@ -15,19 +16,11 @@ const RequestDetailsModal: React.FC<{
     return (
         <div className="modal">
             <div className="modal-content">
-                <h2>Детали обращения</h2>
-                <p>
-                    <strong>Имя:</strong> {request.name}
-                </p>
-                <p>
-                    <strong>Тип:</strong> {request.type}
-                </p>
-                <p>
-                    <strong>Описание:</strong> {request.description}
-                </p>
-                <p>
-                    <strong>Статус:</strong> {request.status}
-                </p>
+                <p>Детали обращения</p>
+                <p>Имя: {request.name}</p>
+                <p>Тип: {request.type}</p>
+                <p>Описание: {request.description}</p>
+                <p>Статус: {request.status}</p>
             </div>
         </div>
     )

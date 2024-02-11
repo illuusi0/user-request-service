@@ -1,5 +1,5 @@
 .modal-overlay {
-    position: fixed; /* Изменено с absolute на fixed */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -8,18 +8,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1050; /* Увеличьте, если есть элементы с более высоким z-index */
+    z-index: 1050;
 }
 
 .modal-window {
+    position: relative;
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1051; /* Убедитесь, что это значение выше, чем у .modal-overlay */
+    z-index: 1051;
     max-width: 500px;
     width: 90%;
-    /* Добавьте margin для автоматической центровки и адаптивности */
     margin: auto;
 }
 
@@ -47,6 +47,10 @@
 }
 
 .close-button {
+    position: absolute;
+    padding: 5px;
+    right: 10px;
+    top: 10px;
     cursor: pointer;
     border: none;
     background: none;
