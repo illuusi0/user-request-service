@@ -40,7 +40,7 @@ const App: React.FC = () => {
                 return response.json()
             })
             .then((updatedData) => {
-                setData((prevData) => [...prevData, formData]) // Обновляем локальное состояние без повторного запроса
+                setData((prevData) => [...prevData, formData])
                 setIsModalOpen(false)
             })
             .catch((error) => console.error('Error:', error))

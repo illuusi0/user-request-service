@@ -14,8 +14,8 @@
 }
 
 .tableBody td {
-    padding-top: 10px; /* Увеличивает пространство сверху ячейки */
-    padding-bottom: 10px; /* Увеличивает пространство снизу ячейки */
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
 }
 
@@ -53,4 +53,9 @@
 .statusInQueue::before {
     content: '\25CF';
     padding-right: 8px;
+}
+
+.description {
+    cursor: pointer;
+    user-select: none;
 }
