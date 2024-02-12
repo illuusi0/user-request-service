@@ -66,7 +66,10 @@ export const RequestsTable: FC<RequestsTableProps> = ({ requests }) => {
                 return ''
         }
     }
-
+    if (!Array.isArray(requests)) {
+        console.error('Expected requests to be an array', requests)
+        return null
+    }
     return (
         <>
             <table className={styles.tableContent}>

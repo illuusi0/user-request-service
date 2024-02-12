@@ -27,17 +27,25 @@ app.post('/data', (req, res) => {
             return
         }
         const existingData = JSON.parse(data || '[]')
+
+        const now = new Date()
+        const formattedDate = [
+            ('0' + now.getDate()).slice(-2),
+            ('0' + (now.getMonth() + 1)).slice(-2),
+            now.getFullYear(),
+        ].join('.')
+
         existingData.push({
             ...newData,
-            date: new Date().toISOString(),
-            status: 'В работе',
+            date: formattedDate,
+            status: 'В очереди',
         })
         fs.writeFile(DATA_FILE, JSON.stringify(existingData, null, 2), (writeErr) => {
             if (writeErr) {
                 res.status(500).send('Error writing data file')
                 return
             }
-            res.status(201).json({ message: 'Data added', data: newData })
+            res.status(201).json({ message: 'Data added', data: { ...newData, date: formattedDate } })
         })
     })
 })

@@ -26,13 +26,12 @@ const App: React.FC = () => {
     }, [])
 
     const handleFormSubmit = (formData: RequestItem) => {
-        const submissionData = { ...formData, date: new Date().toISOString(), status: 'В очереди' }
         fetch('http://localhost:3001/data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(submissionData),
+            body: JSON.stringify(formData),
         })
             .then((response) => {
                 if (!response.ok) {
@@ -41,7 +40,7 @@ const App: React.FC = () => {
                 return response.json()
             })
             .then((updatedData) => {
-                setData(updatedData)
+                setData((prevData) => [...prevData, formData]) // Обновляем локальное состояние без повторного запроса
                 setIsModalOpen(false)
             })
             .catch((error) => console.error('Error:', error))

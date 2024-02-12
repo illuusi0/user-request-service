@@ -26,31 +26,11 @@ export const FormComponent: FC<FormComponentProps> = ({ onSubmit }) => {
             status: 'В очереди',
         }
 
-        fetch('http://localhost:3001/data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-            .then((response) => {
-                const contentType = response.headers.get('content-type')
-                if (contentType && contentType.indexOf('application/json') !== -1) {
-                    return response.json()
-                } else {
-                    throw new Error('Response not JSON')
-                }
-            })
-            .then((data) => {
-                console.log('Success:', data)
-                setName('')
-                setType('')
-                setDescription('')
-                if (onSubmit) onSubmit(formData)
-            })
-            .catch((error) => {
-                console.error('Error:', error)
-            })
+        onSubmit(formData)
+
+        setName('')
+        setType('')
+        setDescription('')
     }
 
     return (
