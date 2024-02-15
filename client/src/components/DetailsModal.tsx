@@ -19,7 +19,8 @@ const RequestDetailsModal: React.FC<{
                 <p>Детали обращения</p>
                 <p>Имя: {request.name}</p>
                 <p>Тип: {request.type}</p>
-                <p>Описание: {request.description}</p>
+                <p>Описание: </p>
+                <textarea>{request.description}</textarea>
                 <p>Статус: {request.status}</p>
             </div>
         </div>

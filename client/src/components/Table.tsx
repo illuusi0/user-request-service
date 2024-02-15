@@ -73,7 +73,7 @@ export const RequestsTable: FC<RequestsTableProps> = ({ requests }) => {
     return (
         <>
             <table className={styles.tableContent}>
-                <thead>
+                <thead className={styles.tableHead}>
                     <tr>
                         <th className={styles.description} onClick={() => requestSort('date')}>
                             Дата <span>&#9660;</span>
@@ -99,9 +99,7 @@ export const RequestsTable: FC<RequestsTableProps> = ({ requests }) => {
                                 {request.description}
                             </td>
                             <td>{request.type}</td>
-                            <td>
-                                <span className={getStatusClassName(request.status)}>{request.status}</span>
-                            </td>
+                            <td className={getStatusClassName(request.status)}>{request.status}</td>
                         </tr>
                     ))}
                 </tbody>
