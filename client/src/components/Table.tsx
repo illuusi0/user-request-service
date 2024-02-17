@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import styles from '../styles/Table.module.scss'
 import Modal from './Modal'
 import RequestDetailsModal from './DetailsModal'
+import filter from '../assets/filter.svg'
 
 interface Request {
     date: string
@@ -75,30 +76,33 @@ export const RequestsTable: FC<RequestsTableProps> = ({ requests }) => {
             <table className={styles.tableContent}>
                 <thead className={styles.tableHead}>
                     <tr>
-                        <th className={styles.description} onClick={() => requestSort('date')}>
-                            Дата <span>&#9660;</span>
+                        <th className={styles.pointer} onClick={() => requestSort('date')}>
+                            Дата <img className={styles.img} src={filter} alt="filter" />
                         </th>
-                        <th className={styles.description} onClick={() => requestSort('name')}>
-                            Имя <span>&#9660;</span>
+                        <th className={styles.pointer} onClick={() => requestSort('name')}>
+                            Имя <img className={styles.img} src={filter} alt="filter" />
                         </th>
                         <th>Описание</th>
-                        <th className={styles.description} onClick={() => requestSort('type')}>
-                            Тип <span>&#9660;</span>
+                        <th className={styles.pointer} onClick={() => requestSort('type')}>
+                            Тип <img className={styles.img} src={filter} alt="filter" />
                         </th>
-                        <th className={styles.description} onClick={() => requestSort('status')}>
-                            Статус <span>&#9660;</span>
+                        <th className={styles.pointer} onClick={() => requestSort('status')}>
+                            Статус <img className={styles.img} src={filter} alt="filter" />
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr style={{ height: '10px' }}>
+                        <td colSpan={5}></td>
+                    </tr>
                     {sortedRequests.map((request, index) => (
                         <tr key={index} className={styles.tableBody}>
-                            <td>{request.date}</td>
-                            <td>{request.name}</td>
+                            <td className={styles.date}>{request.date}</td>
+                            <td className={styles.name}>{request.name}</td>
                             <td className={styles.description} onClick={() => handleRequestClick(request)}>
                                 {request.description}
                             </td>
-                            <td>{request.type}</td>
+                            <td className={styles.type}>{request.type}</td>
                             <td className={getStatusClassName(request.status)}>{request.status}</td>
                         </tr>
                     ))}

@@ -124,5 +124,12 @@
     "description": "не работает",
     "type": "Ошибка",
     "status": "В очереди"
+  },
+  {
+    "date": "17.02.2024",
+    "name": "asdasf asf sdaf",
+    "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafsdvsdv sdfs dfsd ",
+    "type": "Замечание",
+    "status": "В очереди"
   }
 ]
