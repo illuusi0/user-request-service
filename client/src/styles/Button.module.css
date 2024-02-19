@@ -15,12 +15,12 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-}
 
-.button:hover {
-    color: #202de6;
-}
+    &:hover {
+        color: #202de6;
+    }
 
-.button:active {
-    color: #202de6;
+    &:active {
+        color: #202de6;
+    }
 }

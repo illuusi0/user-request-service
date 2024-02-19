@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import styles from '../styles/Table.module.scss'
+import styles from '../styles/Table.module.css'
 import Modal from './Modal'
 import RequestDetailsModal from './DetailsModal'
 import filter from '../assets/filter.svg'

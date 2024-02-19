@@ -1,4 +1,4 @@
-.modal-overlay {
+.modalOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@
     z-index: 1050;
 }
 
-.modal-window {
+.modalWindow {
     position: relative;
     background-color: #fff;
     padding: 20px;
@@ -23,29 +23,29 @@
     margin: auto;
 }
 
-.modal-header,
-.modal-body,
-.modal-footer {
+.modalHeader,
+.modalBody,
+.modalFooter {
     padding: 1em;
 }
 
-.modal-header {
+.modalHeader {
     border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.modal-title {
+.modalTitle {
     margin: 0;
 }
 
-.modal-footer {
+.modalFooter {
     border-top: 1px solid #eee;
     text-align: right;
 }
 
-.close-button {
+.closeButton {
     position: absolute;
     padding: 5px;
     right: 10px;

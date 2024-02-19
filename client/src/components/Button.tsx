@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/Button.scss'
+import styles from '../styles/Button.module.css'
 
 interface ButtonProps {
     onClick: () => void
@@ -7,10 +7,10 @@ interface ButtonProps {
     className?: string
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, className }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, children, className = '' }) => {
     return (
-        <div className={`wrapper ${className || ''}`}>
-            <button className={`button ${className || ''}`} onClick={onClick}>
+        <div className={`${styles.wrapper} ${className}`}>
+            <button className={`${styles.button} ${className}`} onClick={onClick}>
                 {children}
             </button>
         </div>

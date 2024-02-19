@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import ReactDOM from 'react-dom'
-import '../styles/Modal.scss'
+import styles from '../styles/Modal.module.css'
 
 interface ModalProps {
     isOpen: boolean
@@ -20,9 +20,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose }) => {
     }
 
     return ReactDOM.createPortal(
-        <div className="modal-overlay" onClick={handleOverlayClick}>
-            <div className="modal-window" onClick={handleModalClick}>
-                <button className="close-button" onClick={onClose}>
+        <div className={styles.modalOverlay} onClick={handleOverlayClick}>
+            <div className={styles.modalWindow} onClick={handleModalClick}>
+                <button className={styles.closeButton} onClick={onClose}>
                     ×
                 </button>
                 {children}

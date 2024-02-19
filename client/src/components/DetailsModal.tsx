@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/DetailsModal.scss'
+import styles from '../styles/DetailsModal.module.css'
 
 const RequestDetailsModal: React.FC<{
     request: {
@@ -15,13 +15,21 @@ const RequestDetailsModal: React.FC<{
 
     return (
         <div className="modal">
-            <div className="modal-content">
-                <p>Детали обращения</p>
-                <p>Имя: {request.name}</p>
-                <p>Тип: {request.type}</p>
-                <p>Описание: </p>
-                <textarea>{request.description}</textarea>
-                <p>Статус: {request.status}</p>
+            <div className={styles.modalContent}>
+                <h2>Детали обращения</h2>
+                <p>
+                    <strong>Имя:</strong> {request.name}
+                </p>
+                <p>
+                    <strong>Тип:</strong> {request.type}
+                </p>
+                <p>
+                    <strong>Описание:</strong>
+                </p>
+                <textarea readOnly value={request.description} />
+                <p>
+                    <strong>Статус:</strong> {request.status}
+                </p>
             </div>
         </div>
     )
